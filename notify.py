@@ -112,8 +112,7 @@ class StandardFareMonitor(HtmlMonitor):
         }
 
     def alert_if(self, parsed):
-        return True
-        # return parsed["date"] == date.today().strftime("%B %d") and parsed["sandwich"]
+        return parsed["date"] == date.today().strftime("%B %d") and parsed["sandwich"]
 
     def alert_message(self, parsed):
         return f"{parsed['sandwich']} ({parsed['date']}) - {parsed['desc']}"
@@ -192,7 +191,7 @@ if __name__ == "__main__":
     monitors = [
         StandardFareMonitor(requests.Session(), keywords=["pork", "beet", "beets", "roast beef", "roastbeef", "sausage"]),
         ArizmendiMonitor(requests.Session(), keywords=[
-            ["roasted yellow potato", "leek", "parmesan", "garlic oil"],
+            ["roasted yellow potato", "leek", "parmesan", "garlic oil"]
         ])
     ]
 
