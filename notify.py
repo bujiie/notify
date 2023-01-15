@@ -5,17 +5,14 @@ import requests
 
 from monitor.arizmendi import ArizmendiMonitor
 from monitor.standard_fare import StandardFareMonitor
-from monitor.__test__.monitor_test import TestMonitor
 
 if __name__ == "__main__":
     MAX_WORKERS = 10
 
-    s = TestMonitor(requests.Session())
-    s.process()
-
+    session = requests.Session()
     monitors = [
-        StandardFareMonitor(requests.Session(), keywords=["pork", "beet", "beets", "roast beef", "roastbeef", "sausage"]),
-        ArizmendiMonitor(requests.Session(), keywords=[
+        StandardFareMonitor(session, keywords=["pork", "beet", "beets", "roast beef", "roastbeef", "sausage"]),
+        ArizmendiMonitor(session, keywords=[
             ["roasted yellow potato", "leek", "parmesan", "garlic oil"]
         ])
     ]

@@ -26,13 +26,20 @@ class StandardFareMonitor(HtmlMonitor):
         if not date_element or len(date_element) < 1:
             return None
 
+        sandwich = None
         # If we find a sandwich name match, we will store it here.
         sandwich_match = None
         # Start by finding all the menu items with the word 'sandwich'. Then
         # filter for the items with a description to narrow the options down.
-        sandwich_items = html.find_all("div", {"class": "menu-item-title"}, string=re.compile('sandwich', re.IGNORECASE))
+        sandwich_items = html.find_all(
+            "div",
+            {"class": "menu-item-title"},
+            string=re.compile('sandwich', re.IGNORECASE))
+
         for sandwich_item in sandwich_items:
-            sandwich_desc = sandwich_item.find_next_siblings("div", {"class": "menu-item-description"})
+            sandwich_desc = sandwich_item.find_next_siblings(
+                "div",
+                {"class": "menu-item-description"})
             if not sandwich_desc or len(sandwich_desc) < 1:
                 continue
 
@@ -47,18 +54,20 @@ class StandardFareMonitor(HtmlMonitor):
             # Once we have found a sandwich with a matching keyword, we are done
             # and do not have to continue search.
             if sandwich_match:
+                " ".join(sandwich_match[0].split(" ")[:-1]).strip()
                 break
 
         # Whatever we return will be passed to the alert_if and alert_message
         # functions for use.
         return {
-            "date": date_element[0].string,
-            "sandwich": " ".join(sandwich_match[0].split(" ")[:-1]).strip() if sandwich_match else None,
+            "menu_date": date_element[0].string,
+            "sandwich": sandwich,
             "desc": sandwich_match[1] if sandwich_match else None
         }
 
     def alert_if(self, parsed: object) -> bool:
-        return parsed["date"] == date.today().strftime("%B %d") and parsed["sandwich"]
+        today = date.today().strftime("%B %d")
+        return parsed["menu_date"] == today and parsed["sandwich"]
 
     def alert_message(self, parsed: object) -> list:
-        return [f"{parsed['sandwich']} ({parsed['date']}) - {parsed['desc']}"]
+        return [f"{parsed['sandwich']} ({parsed['menu_date']}) - {parsed['desc']}"]

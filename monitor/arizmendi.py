@@ -20,8 +20,11 @@ class ArizmendiMonitor(HtmlMonitor):
             return None
 
         # Assuming date range in format 'Month ##-##'
-        [month, dayrange] = daterange_element.string.split(" ")[-2:]
-        [startday, endday] = dayrange.split("-")
+        [month, daterange] = daterange_element.string.split(" ")[-2:]
+        # Note this will probably fail when the week is spread across the end of
+        # one month and the beginning of the next assuming the format will be
+        # 'January 31 - February 4'
+        [startdate, enddate] = [int(d) for d in daterange.split("-")]
 
         weekly_menu = {
             "WEDNESDAY": None,
@@ -37,37 +40,24 @@ class ArizmendiMonitor(HtmlMonitor):
                 continue
             pizza = menu_element[0].text.replace(day, "").strip().lower()
 
-            keyword_match = False
             for keyword in self.keywords:
-                keyword_inner_match = True
-                for kw in keyword:
-                    if kw not in pizza:
-                        keyword_inner_match = False
-                        break
-
-                if keyword_inner_match:
+                if all([i in pizza for i in keyword]):
                     weekly_menu[day] = pizza
-                    keyword_match = True
                     break
+
         return {
             "month": month,
-            "startday": int(startday),
-            "endday": int(endday),
+            "startdate": startdate,
+            "enddate": enddate,
             "menu": weekly_menu
         }
 
     def alert_if(self, parsed: object = None) -> bool:
-        [month, day] = date.today().strftime("%B %d").split(" ")
-        return parsed["month"] == month and int(day) in range(parsed["startday"], parsed["endday"]+1) and len([d for d in parsed['menu'].keys() if parsed['menu'][d]]) > 0
+        [month, today] = date.today().strftime("%B %d").split(" ")
+        menu = parsed['menu']
+        return (parsed["month"] == month
+                and int(today) in range(parsed["startdate"], parsed["enddate"]+1)
+                and len([d for d in menu.keys() if menu[d]]) > 0)
 
     def alert_message(self, parsed: object = None) -> list:
-        menu = parsed['menu']
-        days = []
-        for day in menu.keys():
-            if menu[day]:
-                days.append(day)
-        v = []
-        for d in days:
-            v.append((d, menu[d]))
-
-        return [f"{day} - {pizza}" for day, pizza in v]
+        return [f"{day} - {pizza}" for day, pizza in parsed['menu'].items() if pizza]
