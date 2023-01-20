@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f9dbb892-f04a-4f04-b91b-40d718c1ec45" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monitor/__test__/monitor_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/monitor/__test__/monitor_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/monitor/arizmendi.py" beforeDir="false" afterPath="$PROJECT_DIR$/monitor/arizmendi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monitor/monitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/monitor/monitor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/monitor/standard_fare.py" beforeDir="false" afterPath="$PROJECT_DIR$/monitor/standard_fare.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notify.py" beforeDir="false" afterPath="$PROJECT_DIR$/notify.py" afterDir="false" />
     </list>
@@ -36,30 +36,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "/Users/brian.ujiie/code/notify",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/brian.ujiie/code/notify&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/monitor/__test__" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for monitor_test.TestMonitorTestCase">
+  <component name="RunManager" selected="Python.notify">
     <configuration name="notify" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="notify" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -151,9 +151,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.notify" />
         <item itemvalue="Python tests.Python tests for monitor_test.TestMonitorTestCase" />
         <item itemvalue="Python tests.Python tests for monitor_test.TestMonitorTestCase.test_missing_url_returns_an_error" />
-        <item itemvalue="Python.notify" />
         <item itemvalue="Python tests.Python tests for monitor_test.TestMonitorTestCase.test_alert_displayed" />
         <item itemvalue="Python tests.Python tests for monitor_test.TestMonitorTestCase.test_nothing_returned_from_parsing" />
       </list>
@@ -169,12 +169,25 @@
       <updated>1673671975297</updated>
       <workItem from="1673671977752" duration="6563000" />
       <workItem from="1673679059097" duration="486000" />
-      <workItem from="1673679594825" duration="20046000" />
+      <workItem from="1673679594825" duration="20591000" />
+      <workItem from="1673977537698" duration="16000" />
+      <workItem from="1674199679356" duration="2887000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -191,8 +204,8 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/notify$notify.coverage" NAME="notify Coverage Results" MODIFIED="1673755565939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/notify$notify.coverage" NAME="notify Coverage Results" MODIFIED="1674203938281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/notify$main.coverage" NAME="main Coverage Results" MODIFIED="1673677981486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/notify$.coverage" NAME=" Coverage Results" MODIFIED="1673756335162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/monitor/__test__" />
+    <SUITE FILE_PATH="coverage/notify$.coverage" NAME=" Coverage Results" MODIFIED="1673756395890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/monitor/__test__" />
   </component>
 </project>

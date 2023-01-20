@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
     session = requests.Session()
     monitors = [
-        StandardFareMonitor(session, keywords=["pork", "beet", "beets", "roast beef", "roastbeef", "sausage"]),
+        StandardFareMonitor(session, keywords=["!chicken", "!cilantro", "pork", "beet", "beets", "roast beef", "roastbeef", "sausage"]),
         ArizmendiMonitor(session, keywords=[
             ["roasted yellow potato", "leek", "parmesan", "garlic oil"]
         ])

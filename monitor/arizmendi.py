@@ -20,7 +20,7 @@ class ArizmendiMonitor(HtmlMonitor):
             return None
 
         # Assuming date range in format 'Month ##-##'
-        [month, daterange] = daterange_element.string.split(" ")[-2:]
+        [month, daterange] = daterange_element.string.strip().split(" ")[-2:]
         # Note this will probably fail when the week is spread across the end of
         # one month and the beginning of the next assuming the format will be
         # 'January 31 - February 4'
@@ -33,6 +33,7 @@ class ArizmendiMonitor(HtmlMonitor):
             "SATURDAY": None,
             "SUNDAY": None
         }
+
         # Search for the days of the week and their corresponding pizza
         for day in weekly_menu.keys():
             menu_element = html.select(f"p:-soup-contains('{day}')")

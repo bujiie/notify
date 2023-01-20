@@ -47,14 +47,17 @@ class StandardFareMonitor(HtmlMonitor):
             # filtered list of sandwiches.
             sandwich_item_str = sandwich_item.string.lower()
             for keyword in self.keywords:
-                if keyword in sandwich_item_str:
+                # Ingredients that we DO NOT want
+                if keyword.startswith("!") and keyword[1:] in sandwich_item_str:
+                    break
+                elif keyword in sandwich_item_str:
                     sandwich_match = (sandwich_item_str, sandwich_desc[0].string)
                     break
 
             # Once we have found a sandwich with a matching keyword, we are done
             # and do not have to continue search.
             if sandwich_match:
-                " ".join(sandwich_match[0].split(" ")[:-1]).strip()
+                sandwich = " ".join(sandwich_match[0].split(" ")[:-1]).strip()
                 break
 
         # Whatever we return will be passed to the alert_if and alert_message
